@@ -1,4 +1,12 @@
 // ================================================
+Number:      7
+First Name:  Владислав
+Last Name:   Горбачов
+YouTubeLink: https://www.youtube.com/watch?v=SzJ46YA_RaA
+// ================================================
+
+
+// ================================================
 Number:      27
 First Name:  Андрій
 Last Name:   Швед
@@ -11,11 +19,4 @@ Number:      28
 First Name:  Олег
 Last Name:   Шмуляр
 YouTubeLink: https://www.youtube.com/watch?v=-fZ_TcDspwc
-// ================================================
-
-// ================================================
-Number:      7
-First Name:  Владислав
-Last Name:   Горбачов
-YouTubeLink: https://www.youtube.com/watch?v=SzJ46YA_RaA
 // ================================================
