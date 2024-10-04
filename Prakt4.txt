@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Creating a node
+struct node {
+    char title[100];
+    float price;
+    int pages;
+    char language[30];
+    float weight;
+    int year;
+    struct node *next;
+};
+
+// Insertion at the end
+void insertAtEnd(struct node** head_ref, char title[], float price, int pages, char language[], float weight, int year) {
+    struct node* new_node = (struct node*)malloc(sizeof(struct node));
+    struct node* last = *head_ref;
+
+    // Fields for new book
+    strcpy(new_node->title, title);
+    new_node->price = price;
+    new_node->pages = pages;
+    strcpy(new_node->language, language);
+    new_node->weight = weight;
+    new_node->year = year;
+    new_node->next = NULL;
+
+    // Check if the list is empty
+    if (*head_ref == NULL) {
+        // If empty, set the new node as the head
+        *head_ref = new_node;
+    } else {
+        // If not empty, traverse to the last node
+        last = *head_ref; // Start from the head
+        while (last->next != NULL) {
+            last = last->next; // Move to the next node
+        }
+        last->next = new_node; // Attach the new node at the end
+    }
+}
+
+// Function for printing info abour books
+void printLinkedList(struct node *p) {
+    while (p != NULL) {
+        printf("Title: %s, Price: %.2f, Pages: %d, Language: %s, Weight: %.2f, Year: %d\n",
+               p->title, p->price, p->pages, p->language, p->weight, p->year);
+        p = p->next;
+    }
+}
+
+int main() {
+    struct node *head = NULL;
+
+    // Info about books
+    insertAtEnd(&head, "Harry Potter and the Philosopher's Stone", 400, 223, "Ukrainian", 0.5, 1997);
+    insertAtEnd(&head, "Harry Potter and the Chamber of Secrets", 380, 251, "Ukrainian", 0.5, 1998);
+    insertAtEnd(&head, "Harry Potter and the Prisoner of Azkaban", 800, 317, "English", 0.5, 1999);
+    insertAtEnd(&head, "Harry Potter and the Goblet of Fire", 450, 636, "Ukrainian", 0.7, 2000);
+    insertAtEnd(&head, "Harry Potter and the Order of the Phoenix", 790, 766, "English", 0.8, 2003);
+    insertAtEnd(&head, "Harry Potter and the Half-Blood Prince", 680, 607, "Ukrainian", 0.7, 2005);
+    insertAtEnd(&head, "Harry Potter and the Deathly Hallows", 800, 607, "English", 0.8, 2007);
+
+    // Print info about books
+    printf("Harry Potter Book Series:\n");
+    printLinkedList(head);
+
+
+    return 0;
+}
