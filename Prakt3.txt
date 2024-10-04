@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[100]; // Array to store the input string
+    int count = 0; // Counter for consonant letters
+
+    // Input the string
+    printf("Print your text: ");
+    fgets(str, sizeof(str), stdin); // Using fgets for safe input
+
+    // Loop through each character in the string
+    for (int i = 0; str[i] != '\0'; i++) {
+        char c = tolower(str[i]); // Convert character to lowercase for easy comparison
+        // Check if the character is a consonant
+        if (c >= 'a' && c <= 'z' && !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) {
+            count++; // If the character is a consonant, increment the counter
+        }
+    }
+
+    // Output the result
+    printf("Number of consonants in the string: %d\n", count);
+
+    return 0;
+}
